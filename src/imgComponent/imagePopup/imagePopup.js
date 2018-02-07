@@ -57,11 +57,11 @@ export default React.createClass({
     /*eslint-enable */
     render() {
         //contentStyle是.dialog_container的style
-        let containerStyle = {
+        const containerStyle = {
             height: '100%',
             overflow: 'visible'
         }
-        let dialogStyle = {
+        const dialogStyle = {
             width: '100%',
             height: '100%',
             top: 0,
@@ -69,6 +69,14 @@ export default React.createClass({
             borderRadius: '0',
             backgroundColor: 'rgba(0, 0, 0, .75)'
         }
+        let { 
+            zIndex = 9999, 
+            data = [],
+            checkedItems,
+            checkPicItem,
+            selectMode,
+            previewMode
+        } = this.props
         return(
             <DragDialog id='imagePopup'
                         ref='imagePopup'
@@ -76,6 +84,7 @@ export default React.createClass({
                         isFullScreen
                         contentStyle={containerStyle}
                         dialogStyle={dialogStyle}
+                        maskStyle={{zIndex}}
                         isDraggable
                         onCloseCb={this.hide}
                         isShow={this.state.show}>
@@ -84,15 +93,15 @@ export default React.createClass({
                       onClick={this.hide}>
                     <i className={styles.closeIcon}/>
                 </span>
-                <ImageSlider ref='imageSlider' data={this.props.data}
-                             checkedItems={this.props.checkedItems}
-                             checkPicItem={this.props.checkPicItem}
+                <ImageSlider ref='imageSlider' data={data}
+                             checkedItems={checkedItems}
+                             checkPicItem={checkPicItem}
                              index={this.state.index}
                              gotoIndexCb={this.show}
                              height={this.state.height}
                              width={this.state.width}
-                             selectMode={this.props.selectMode}
-                             previewMode={this.props.previewMode}/>
+                             selectMode={selectMode}
+                             previewMode={previewMode}/>
             </DragDialog>
         )
     }
