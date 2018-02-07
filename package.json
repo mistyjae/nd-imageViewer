@@ -1,6 +1,6 @@
 {
   "name": "nd-image-viewer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "react image viewer component",
   "main": "./lib/index.js",
   "repository": {
