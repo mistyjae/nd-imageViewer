@@ -19,7 +19,8 @@ export default React.createClass({
         checkedItems: PropTypes.array,
         checkPicItem: PropTypes.func,
         selectMode: PropTypes.string,
-        previewMode: PropTypes.bool
+        previewMode: PropTypes.bool,
+        zIndex: PropTypes.number   
     },
     getInitialState() {
         return {
@@ -84,7 +85,7 @@ export default React.createClass({
                         isFullScreen
                         contentStyle={containerStyle}
                         dialogStyle={dialogStyle}
-                        maskStyle={{zIndex}}
+                        maskStyle={{ zIndex }}
                         isDraggable
                         onCloseCb={this.hide}
                         isShow={this.state.show}>
